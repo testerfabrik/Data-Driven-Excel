@@ -1,13 +1,14 @@
 package com.titanium.test;
 
-import com.titanium.commons.Bussines;
+import com.titanium.commons.Commons;
 import com.titanium.utils.LocatorType;
 import com.titanium.utils.TestData;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-public class RegisterUsers  extends Bussines {
+public class RegisterUsers  extends Commons {
     public WebDriver driver;
 
 	@BeforeTest
@@ -27,26 +28,25 @@ public class RegisterUsers  extends Bussines {
 	
 	@Test(dataProviderClass = TestData.class, dataProvider = "UserRegistration", description="Test Case for Register an user")
 	public void registerUserInformation(String ... registerInfo){
-		String[] contactInfo = new String[4];
-		String[] mailInfo = new String[5];
-
-		//Store data for mail info and contact info
-		for(int i = 0; i <= 8; i++){
-			if(i>3){
-				mailInfo[i-4] = registerInfo[i];
-			}else{
-				contactInfo[i] = registerInfo[i];
-			}
-		}
 
 		//Adding Contact Information
-		addContactInfo(contactInfo);
+		typeInTextBox(LocatorType.Name, "firstName",registerInfo[0]);
+		typeInTextBox(LocatorType.Name, "lastName", registerInfo[1]);
+		typeInTextBox(LocatorType.Name, "phone", registerInfo[2]);
+		typeInTextBox(LocatorType.Id, "userName",registerInfo[3]);
 
 		//Adding Mailing Information
-		addMailingInfo(mailInfo);
+		typeInTextBox(LocatorType.Name, "address1", registerInfo[4]);
+		typeInTextBox(LocatorType.Name, "city", registerInfo[5]);
+		typeInTextBox(LocatorType.Name, "state", registerInfo[6]);
+		typeInTextBox(LocatorType.Name, "postalCode", registerInfo[7]);
+		selectFromDropDown(LocatorType.Name, "country", registerInfo[8]);
 
 		//Adding User Information
-		submitUserInfo(registerInfo[9], registerInfo[10]);
+		typeInTextBox(LocatorType.Id, "email", registerInfo[9]);
+		typeInTextBox(LocatorType.Name, "password", registerInfo[10]);
+		typeInTextBox(LocatorType.Name, "confirmPassword", registerInfo[10]);
+		getDriver().findElement(By.name("confirmPassword")).submit();
 
 		//Verify user name is displayed
 		Assert.assertTrue(getElementText().contains(registerInfo[9]));
