@@ -1,6 +1,7 @@
-package com.titanium.utils;
+package com.testerfabrik.utils;
 
 public enum LocatorType {
+    // Enumerable con Locators
     Xpath,
     Id,
     LinkText,

@@ -1,6 +1,6 @@
-package com.titanium.commons;
+package com.testerfabrik.commons;
 
-import com.titanium.utils.LocatorType;
+import com.testerfabrik.utils.LocatorType;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -20,8 +20,9 @@ public class Commons {
         }
         return driver;
     }
-    //Common functions
-    // method to navigate into demo auto new tours
+
+    // Functiones Comunes
+    // Método para navegar a la página de demo auto new tours
     public void navigateTo(){
         getDriver();
         getDriver().get("http://newtours.demoaut.com/");
@@ -29,7 +30,7 @@ public class Commons {
         getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
-    // method to type into text box item
+    // Método para escribir en un cuadro de texto
     public void typeInTextBox(LocatorType locatorType, String locator, String textToType ){
         switch(locatorType.toString()){
             case "Name":
@@ -41,7 +42,7 @@ public class Commons {
         }
     }
 
-    // method to click on element
+    // Método para hacer clic en un elemento
     public void clickOnLink(LocatorType locatorType, String locator){
         switch(locatorType.toString()){
             case "LinkText":
@@ -49,12 +50,13 @@ public class Commons {
                 break;
         }
     }
-    // method to get text from element
+
+    // Método para obtener el texto de un elemento
     public String getElementText(){
         return getDriver().findElement(By.xpath(xpathLoc)).getText();
     }
 
-    // method to select item from drop down box
+    // Método para seleccionar un item de una lista desplegable
     public void selectFromDropDown(LocatorType locatorType, String locator,String text){
         switch(locatorType.toString()){
             case "Name":
