@@ -19,6 +19,7 @@
 *.rar
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Drivers
 *.exe
 *.iml
@@ -28,6 +29,8 @@ target/*
 .idea/*
 
 
+=======
+>>>>>>> 87b4ac20dc1476222fec22d886104c5e7392df34
 =======
 >>>>>>> 87b4ac20dc1476222fec22d886104c5e7392df34
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
