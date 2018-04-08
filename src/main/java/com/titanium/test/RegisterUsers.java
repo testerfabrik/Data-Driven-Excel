@@ -3,7 +3,6 @@ package com.titanium.test;
 import com.titanium.commons.Bussines;
 import com.titanium.utils.LocatorType;
 import com.titanium.utils.TestData;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
